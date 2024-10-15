@@ -1,4 +1,5 @@
 mod m20240101_000001_create_user_components_table;
+mod m20240101_000002_create_version_management_table;
 
 use sea_orm_migration::prelude::*;
 
@@ -9,6 +10,7 @@ impl MigratorTrait for Migrator {
     fn migrations() -> Vec<Box<dyn MigrationTrait>> {
         vec![
             Box::new(m20240101_000001_create_user_components_table::Migration),
+            Box::new(m20240101_000002_create_version_management_table::Migration),
         ]
     }
 }

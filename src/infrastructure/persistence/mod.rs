@@ -1,1 +1,2 @@
 pub mod user_component_repository_impl;
+pub mod version_management_repository_impl;
