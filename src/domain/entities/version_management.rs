@@ -6,11 +6,11 @@ use serde::{Deserialize, Serialize};
 pub struct Model {
     #[sea_orm(primary_key)]
     pub id: i32,
-    pub date: Date,
+    pub date: DateTimeWithTimeZone,
     pub version: String,
     pub code_content: String,
     pub name: String,
-    pub creation_date: DateTime,
+    pub creation_date: DateTimeWithTimeZone,
     pub image_preview: Option<String>,
 }
 

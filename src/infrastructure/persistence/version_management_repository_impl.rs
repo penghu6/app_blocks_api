@@ -19,13 +19,13 @@ impl VersionManagementRepository for VersionManagementRepositoryImpl {
         let conn = self.client.get().await;
         let item: version_management::Model = model.into();
         let result = item.into_active_model().insert(conn.as_ref()).await?;
-        Ok(result.last_insert_id.into())
+        Ok(result.into())
     }
 
     async fn update(&self, model: VersionManagementModel) -> Result<VersionManagementModel, DbErr> {
         let conn = self.client.get().await;
         let item: version_management::Model = model.into();
-        let mut am = item.into_active_model().into_active_model();
+        let mut am = item.into_active_model();
         let result = am.update(conn.as_ref()).await?;
         Ok(result.into())
     }

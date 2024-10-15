@@ -1,5 +1,7 @@
 use chrono::{DateTime, Utc};
-use sea_orm::FromQueryResult;
+use sea_orm::{
+    ActiveEnum, ColumnDef, ColumnType, ColumnTypeTrait, DbErr, DeriveActiveEnum, DeriveDisplay, EnumIter, FromQueryResult,
+};
 use sea_orm::prelude::DateTimeWithTimeZone;
 use serde::{Deserialize, Serialize};
 use struct_convert::Convert;
