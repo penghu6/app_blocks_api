@@ -6,9 +6,11 @@ use sea_orm::prelude::DateTimeWithTimeZone;
 use serde::{Deserialize, Serialize};
 use struct_convert::Convert;
 
+
+
 #[derive(Clone, Debug, Serialize, Deserialize, PartialEq, Eq, Convert, FromQueryResult)]
-// #[convert(from = "user_components::Model")]
-// #[convert(into = "user_components::Model")]
+#[convert(from = "crate::domain::entities::user_component::Model")]
+#[convert(into = "crate::domain::entities::user_component::Model")]
 pub struct UserComponentModel {
   pub id: i32,
   pub react_code: String,

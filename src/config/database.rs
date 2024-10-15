@@ -3,6 +3,7 @@ use sea_orm::{ConnectOptions, Database, DatabaseConnection};
 use sea_orm_migration::prelude::*;
 use std::sync::Arc;
 use std::time::Duration;
+use log::debug;
 use tokio::sync::RwLock;
 use crate::config::SETTINGS;
 
@@ -18,7 +19,9 @@ impl DatabaseManager {
     }
 
     pub async fn configure(&self) {
+
         let mut options = ConnectOptions::new(SETTINGS.database_url.clone());
+
         options
             .max_connections(100)
             .min_connections(5)
